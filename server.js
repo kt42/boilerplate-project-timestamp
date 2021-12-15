@@ -45,7 +45,7 @@ var returobj = {};
 
 
 
-app.get('/api/:newparamstring', function(req, res) 
+app.get('/api/:date', function(req, res) 
 {
 
   function returnIt(dateObj)
@@ -59,23 +59,23 @@ app.get('/api/:newparamstring', function(req, res)
     res.json(returobj);
   }
 
-  //returobj = {"echo": typeof req.params.newparamstring};
-  //console.log(typeof req.params.newparamstring);
+  //returobj = {"echo": typeof req.params.date};
+  //console.log(typeof req.params.date);
 
-  if (!req.params.newparamstring)
+  if (!req.params.date)
   {
     console.log(555, "empty");
     returnIt(new Date());
   }
 
   var dateObj;
-  dateObj = new Date(req.params.newparamstring); // returns a Date object if valid, or a string literal "Invalid Date" if invalid
+  dateObj = new Date(req.params.date); // returns a Date object if valid, or a string literal "Invalid Date" if invalid
   if (dateObj.toString() === "Invalid Date") 
   {
     // Check if it's a unix timstamp (ie AN INTEGER) - so convert to int then check again. 
     // If still invalid - it's either an invalid unix timestamp or just an invalid date in general
     
-    var paramstringasint = parseInt(req.params.newparamstring);
+    var paramstringasint = parseInt(req.params.date);
     dateObj = new Date(paramstringasint);
     if (dateObj.toString() === "Invalid Date")
     {
