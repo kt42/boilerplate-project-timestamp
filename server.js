@@ -51,9 +51,11 @@ app.get('/api/:newparamstring', function(req, res)
   function returnIt(dateObj)
   {
     var datestring = dateObj.toString(); // gives date as nice date formatted String
-    var subdatestring = datestring.substring(0, datestring.length - 27); // chop 27 chars to get desired format
-    var unixtime = (dateObj.getTime()); // gettime() returns js timestamp  (should actually divide this by 1000 to make it real unix time, but the project description wants milliseconds included... which is actually JS time....)
-    returobj = { "unix": unixtime, "utc": subdatestring };
+    //var subdatestring = datestring.substring(0, datestring.length - 27); // chop 27 chars to get desired format
+    datestringformatted = dateObj.toUTCString();
+
+    var unixtime = (dateObj.getTime()); // gettime() returns js timestamp  (should actually divide this by 1000 to make it real unix time, but the project description wants milliseconds included... which is actually JS
+    returobj = { "unix": unixtime, "utc": datestringformatted };
     res.json(returobj);
   }
 
