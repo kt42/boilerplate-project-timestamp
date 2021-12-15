@@ -50,7 +50,7 @@ app.get('/api/:newparamstring', function(req, res)
 
   function returnIt(dateObj)
   {
-    var datestring = dateObj.toString(); // gives date as nice date formatted String
+    //var datestring = dateObj.toString(); // gives date as nice date formatted String
     //var subdatestring = datestring.substring(0, datestring.length - 27); // chop 27 chars to get desired format
     datestringformatted = dateObj.toUTCString();
 
