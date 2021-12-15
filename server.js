@@ -45,7 +45,7 @@ var returobj = {};
 
 
 
-app.get('/api/:date', function(req, res) 
+app.get('/api/:date?', function(req, res) 
 {
 
   function returnIt(dateObj)
@@ -67,6 +67,8 @@ app.get('/api/:date', function(req, res)
     console.log(555, "empty");
     returnIt(new Date());
   }
+  else
+  {
 
   var dateObj;
   dateObj = new Date(req.params.date); // returns a Date object if valid, or a string literal "Invalid Date" if invalid
@@ -97,6 +99,7 @@ app.get('/api/:date', function(req, res)
 
   console.log(dateObj);
  // res.send("sdfsfd");
+  }
 });
 
 
