@@ -26,9 +26,12 @@ app.get("/api/hello", function (req, res) {
 
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+const port = process.env.PORT || 8080
+
+var listener = app.listen(port, function () {
   console.log('Your app is listening on portttt http://localhost:' + listener.address().port);
 });
+
 
 ///////////////////////////////////////////////////////
 
