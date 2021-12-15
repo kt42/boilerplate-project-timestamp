@@ -69,7 +69,6 @@ app.get('/api/:date?', function(req, res)
   }
   else
   {
-
   var dateObj;
   dateObj = new Date(req.params.date); // returns a Date object if valid, or a string literal "Invalid Date" if invalid
   if (dateObj.toString() === "Invalid Date") 
