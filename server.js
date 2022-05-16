@@ -80,8 +80,9 @@ app.get('/api/:date?', function(req, res)
     // If still invalid - it's either an invalid unix timestamp or just an invalid date in general
     
     var paramstringasint = parseInt(req.params.date);
-    dateObj = new Date(paramstringasint);
-    if (dateObj.toString() === "Invalid Date")
+    dateObj = new Date(paramstringasint); // try again as an int
+
+    if (dateObj.toString() === "Invalid Date") // not a sting date or an int date
     {
       returobj = { "error" : "Invalid Date" }
       res.json(returobj);
